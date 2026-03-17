@@ -29,9 +29,15 @@
     };
     requestAnimationFrame(animCursor);
 
-    qsa('a, button, .btn, .card, .work-card, .project-card, .svc-row').forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    document.addEventListener('mouseover', e => {
+      if (e.target.closest('a, button, .btn, .card, .work-card, .project-card, .svc-row')) {
+        document.body.classList.add('cursor-hover');
+      }
+    });
+    document.addEventListener('mouseout', e => {
+      if (e.target.closest('a, button, .btn, .card, .work-card, .project-card, .svc-row')) {
+        document.body.classList.remove('cursor-hover');
+      }
     });
   }
 
