@@ -105,7 +105,7 @@ input, textarea, select { font-family: inherit; }
   background: var(--accent);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 20000;
   transform: translate(-50%,-50%);
   transition: width .25s var(--ease-out), height .25s var(--ease-out), opacity .2s;
   top: 0; left: 0;
@@ -117,7 +117,7 @@ input, textarea, select { font-family: inherit; }
   border: 1.5px solid rgba(90,138,0,0.4);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9998;
+  z-index: 19999;
   transform: translate(-50%,-50%);
   transition: width .38s var(--ease-out), height .38s var(--ease-out), opacity .2s;
   top: 0; left: 0;
