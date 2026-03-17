@@ -95,6 +95,28 @@
       image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=800',
       color: '#1e293b',
     },
+    {
+      id: 9, category: 'web',
+      title: 'Vantis Prosperindo',
+      client: 'Vantis Prosperindo Management',
+      year: '2024',
+      desc: 'Corporate website development for a leading investment management firm. We delivered a clean, professional digital presence focusing on trust and transperency, featuring real-time market data integration and a secure investor document portal.',
+      result: '99.9% platform uptime & enhanced UI engagement',
+      tags: ['Web Development', 'Fintech UI', 'Corporate Branding'],
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+      color: '#21bda1',
+    },
+    {
+      id: 10, category: 'web',
+      title: 'bQuik Indonesia',
+      client: 'bQuik Indonesia',
+      year: '2024',
+      desc: 'Integrated digital solution for an automotive service leader. We managed end-to-end website development and performance marketing campaigns, driving a massive increase in service appointment bookings through hyper-targeted localized ads.',
+      result: '180% growth in online service bookings',
+      tags: ['Website', 'Performance Ads', 'Lead Generation'],
+      image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=800',
+      color: '#f59e0b',
+    },
   ];
 
   const grid    = document.getElementById('portfolio-grid');
