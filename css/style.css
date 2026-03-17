@@ -20,12 +20,12 @@
   --text-500:      #475569;      
   --text-300:      #94a3b8;
 
-  /* Accent — Teal/Green */
-  --accent:        #48bc70;      /* Green */
-  --accent-alt:    #21bda1;      /* Teal for gradients */
-  --accent-light:  #dcfce7;     
-  --accent-dim:    rgba(72,188,112,0.08);
-  --accent-glow:   rgba(72,188,112,0.18);
+  /* Accent — Soft blue/purple */
+  --accent:        #6366f1;      /* Indigo */
+  --accent-alt:    #a855f7;      /* Purple for gradients */
+  --accent-light:  #e0e7ff;     
+  --accent-dim:    rgba(99,102,241,0.08);
+  --accent-glow:   rgba(99,102,241,0.18);
   --accent-btn:    #0f172a;      /* Primary buttons dark for minimal feel */
 
   /* Borders */
