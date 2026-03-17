@@ -108,13 +108,13 @@
     },
     {
       id: 10, category: 'web',
-      title: 'bQuik Indonesia',
-      client: 'bQuik Indonesia',
+      title: 'BQuik Indonesia',
+      client: 'BQuik Indonesia',
       year: '2024',
       desc: 'Integrated digital solution for an automotive service leader. We managed end-to-end website development and performance marketing campaigns, driving a massive increase in service appointment bookings through hyper-targeted localized ads.',
       result: '180% growth in online service bookings',
       tags: ['Website', 'Performance Ads', 'Lead Generation'],
-      image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=800',
+      image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800',
       color: '#f59e0b',
     },
   ];
