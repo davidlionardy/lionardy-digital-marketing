@@ -19,17 +19,6 @@
       color: '#10b981',
     },
     {
-      id: 3, category: 'web',
-      title: 'Senja Lifestyle',
-      client: 'Senja E-Commerce',
-      year: '2023',
-      desc: 'Headless commerce platform for an Indonesian local brand expanding into Southeast Asia. Custom Shopify Hydrogen frontend with localization, multi-currency, and a 0.8s average load time on mobile — a 4× improvement over their legacy store.',
-      result: '4× faster load time, 28% higher checkout rate',
-      tags: ['Shopify', 'React', 'Sanity CMS', 'Cloudflare'],
-      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800',
-      color: '#10b981',
-    },
-    {
       id: 4, category: 'branding',
       title: 'Tirta Spirits',
       client: 'Tirta Artisan Spirits',
