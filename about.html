@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Lionardy Digital Marketing</title>
+  <meta name="description" content="Meet the Lionardy team — designers, developers, and strategists dedicated to building extraordinary digital experiences." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <style>
+    /* ── ABOUT HEADER ── */
+    .about-hero { padding: var(--sp-16) 0 var(--sp-12); position: relative; background: var(--bg-0); border-bottom: 1px solid var(--border-100); }
+    .about-hero h1 { max-width: 900px; }
+    .about-hero p { margin-top: var(--sp-4); font-size: 1.15rem; max-width: 600px; line-height: 1.75; color: var(--text-500); }
+
+    /* ── INTRO ── */
+    .intro-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-12); align-items: start;
+    }
+    .intro-visual {
+      position: relative; height: 500px; border-radius: var(--r-2xl);
+      background: var(--bg-0); box-shadow: var(--shadow-sm); border: 1px solid var(--border-100);
+      display: flex; align-items: center; justify-content: center; font-size: 6rem;
+    }
+    .intro-stat-chip {
+      position: absolute; background: var(--bg-0); border: 1px solid var(--border-100);
+      border-radius: var(--r-xl); padding: var(--sp-4) var(--sp-5); box-shadow: var(--shadow-md);
+    }
+    .intro-stat-chip:first-of-type { bottom: -24px; left: -24px; }
+    .intro-stat-chip:last-of-type  { top: 40px; right: -24px; }
+    .chip-num { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; color: var(--text-900); }
+    .chip-label { font-size: 0.75rem; color: var(--text-500); font-weight: 500; margin-top: 4px; }
+
+    /* ── MISSION/VISION ── */
+    .mv-section { background: var(--bg-1); }
+    .mv-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-5); margin-top: var(--sp-8); }
+    .mv-card {
+      padding: var(--sp-8) var(--sp-6); border-radius: var(--r-2xl);
+      border: 1px solid var(--border-100); background: var(--bg-0);
+      transition: box-shadow var(--t-med);
+    }
+    .mv-card:hover { box-shadow: var(--shadow-sm); }
+    .mv-card-bg-num { font-size: 6rem; font-weight: 900; color: var(--bg-2); line-height: 0.8; margin-bottom: var(--sp-4); }
+    .mv-card h3 { font-size: 1.8rem; margin-bottom: var(--sp-3); }
+    .mv-card p { font-size: 1rem; color: var(--text-500); }
+
+    /* ── VALUES ── */
+    .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-4); margin-top: var(--sp-8); }
+    .value-card {
+      padding: var(--sp-6); border-radius: var(--r-xl);
+      background: var(--bg-0); border: 1px solid var(--border-100);
+      transition: all var(--t-med);
+    }
+    .value-card:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); }
+    .value-num { font-size: 0.75rem; font-weight: 700; color: var(--accent); margin-bottom: var(--sp-2); }
+    .value-title { font-size: 1.25rem; font-weight: 700; margin-bottom: var(--sp-2); }
+    .value-desc { font-size: 0.95rem; color: var(--text-500); line-height: 1.6; }
+
+    /* ── TEAM ── */
+    .team-section { background: var(--bg-0); border-top: 1px solid var(--border-100); }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); margin-top: var(--sp-8); }
+    .team-card {
+      border-radius: var(--r-xl); background: var(--bg-1);
+      border: 1px solid var(--border-100); overflow: hidden;
+      transition: all var(--t-med);
+    }
+    .team-card:hover { border-color: var(--border-200); transform: translateY(-4px); box-shadow: var(--shadow-sm); }
+    .team-photo {
+      height: 240px; display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; background: var(--bg-2); position: relative; overflow: hidden;
+    }
+    .team-photo img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform var(--t-slow), filter var(--t-slow);
+      filter: grayscale(100%);
+    }
+    .team-card:hover .team-photo img { transform: scale(1.05); filter: grayscale(0%); }
+    .team-card-body { padding: var(--sp-4); }
+    .team-card-body h4 { font-size: 1.1rem; margin-bottom: 4px; }
+    .team-role { font-size: 0.75rem; color: var(--accent); font-weight: 700; text-transform: uppercase; margin-bottom: var(--sp-3); letter-spacing: 0.05em; }
+    .team-card-body p { font-size: 0.85rem; color: var(--text-500); line-height: 1.6; }
+
+    @media (max-width: 1024px) {
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .intro-grid { grid-template-columns: 1fr; }
+      .intro-visual { height: 380px; margin-top: var(--sp-8); }
+    }
+    @media (max-width: 900px) {
+      .mv-pair { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div id="cursor" aria-hidden="true"></div>
+  <div id="cursor-trail" aria-hidden="true"></div>
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <nav id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo"><span class="logo-mark">L</span> Lionardy</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn-nav magnetic">Start a Project</a>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-mobile">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Work</a><a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+    <header class="about-hero">
+      <div class="container">
+        <div class="label-chip reveal"><span class="dot"></span> About Lionardy</div>
+        <h1 class="reveal d1">Made in Jakarta.<br>Built for the world.</h1>
+        <p class="reveal d2">We're a team of designers, engineers, and strategists dedicated to building digital experiences that are measurably excellent.</p>
+      </div>
+    </header>
+
+    <section>
+      <div class="container">
+        <div class="intro-grid">
+          <div class="reveal-left">
+            <div class="label-chip"><span class="dot"></span> Who We Are</div>
+            <h2>A studio obsessed with craft.</h2>
+            <p style="margin-top:var(--sp-4);margin-bottom:var(--sp-4);color:var(--text-500)">Founded in Jakarta in 2019, we started with one conviction: that the best digital products work as hard as they look good.</p>
+            <p style="margin-bottom:var(--sp-4);color:var(--text-500)">We partner with startups, SMEs, and enterprise brands across Southeast Asia — delivering websites, brand identities, and scaling systems.</p>
+            <div class="stats-row" style="margin-top:var(--sp-8);display:flex;gap:var(--sp-8);">
+              <div>
+                <div class="stat-number" data-target="20">0</div>
+                <div class="stat-label">Team Members</div>
+              </div>
+              <div>
+                <div class="stat-number" data-target="140">0</div>
+                <div class="stat-label">Projects Shipped</div>
+              </div>
+            </div>
+          </div>
+          <div class="intro-visual reveal-right d1">
+            🚀
+            <div class="intro-stat-chip">
+              <div class="chip-num" data-target="98" data-suffix="%">0%</div>
+              <div class="chip-label">Client Retention</div>
+            </div>
+            <div class="intro-stat-chip">
+              <div class="chip-num">4.9 ★</div>
+              <div class="chip-label">Average Rating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION / VISION -->
+    <section class="mv-section">
+      <div class="container">
+        <div class="label-chip reveal"><span class="dot"></span> Core Beliefs</div>
+        <h2 class="reveal d1">Vision &amp; Mission</h2>
+        <div class="mv-pair">
+          <div class="mv-card reveal d2">
+            <div class="mv-card-bg-num">01</div>
+            <h3>Our Vision</h3>
+            <p>To be Southeast Asia's most trusted digital creative partner — setting the standard for what web and brand work can achieve when strategy, design, and technology are treated as one discipline.</p>
+          </div>
+          <div class="mv-card reveal d3">
+            <div class="mv-card-bg-num">02</div>
+            <h3>Our Mission</h3>
+            <p>To craft digital experiences that are measurably excellent — beautiful enough to command attention, fast enough to retain it, and persuasive enough to convert it into real business outcomes.</p>
+          </div>
+        </div>
+        
+        <div class="values-grid">
+          <div class="value-card reveal d1">
+            <div class="value-num">— 01</div>
+            <div class="value-title">Craft Before Speed</div>
+            <p class="value-desc">Every pixel, every API endpoint. We take the time to get it right — and have built a process efficient enough to do it on schedule.</p>
+          </div>
+          <div class="value-card reveal d2">
+            <div class="value-num">— 02</div>
+            <div class="value-title">Radical Transparency</div>
+            <p class="value-desc">No black boxes. You get direct access to your team, live Figma files, and staging environments — from day one.</p>
+          </div>
+          <div class="value-card reveal d3">
+            <div class="value-num">— 03</div>
+            <div class="value-title">Outcomes over Optics</div>
+            <p class="value-desc">Beautiful work that doesn't move the needle is decoration. We measure everything that matters to your business.</p>
+          </div>
+          <div class="value-card reveal d4">
+            <div class="value-num">— 04</div>
+            <div class="value-title">Long-Term Partnership</div>
+            <p class="value-desc">We build for the future, not the invoice. 80% of our clients return for a second or third engagement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="team-section">
+      <div class="container">
+        <div class="label-chip reveal"><span class="dot"></span> The People</div>
+        <h2 class="reveal d1">Meet the team</h2>
+        <p class="section-sub reveal d2">A tight-knit crew of obsessive creators who love shipping great work.</p>
+        <div class="team-grid">
+          <article class="team-card reveal d1">
+            <div class="team-photo"><img src="img/david.png" alt="David Lionardy" loading="lazy"></div>
+            <div class="team-card-body">
+              <h4>David Lionardy</h4>
+              <div class="team-role">Founder &amp; CEO</div>
+              <p>Strategist and product thinker. David leads client relationships and sets the creative direction.</p>
+            </div>
+          </article>
+          <article class="team-card reveal d2">
+            <div class="team-photo"><img src="img/reza.png" alt="Reza Pratama" loading="lazy"></div>
+            <div class="team-card-body">
+              <h4>Reza Pratama</h4>
+              <div class="team-role">Head of Engineering</div>
+              <p>Full-stack architect obsessed with performance. Reza leads our dev team and code quality.</p>
+            </div>
+          </article>
+          <article class="team-card reveal d3">
+            <div class="team-photo"><img src="img/anisa.png" alt="Anisa Wijaya" loading="lazy"></div>
+            <div class="team-card-body">
+              <h4>Anisa Wijaya</h4>
+              <div class="team-role">Lead UX Researcher</div>
+              <p>Human factors expert. Anisa runs discovery sprints to ensure every decision is evidence-based.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo"><span class="logo-mark">L</span>Lionardy</a>
+          <p>A full-service digital marketing agency crafting modern, high-performance websites and strategic brands.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h5>Pages</h5><a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="portfolio.html">Work</a>
+          </div>
+          <div class="footer-col">
+            <h5>Contact</h5><a href="mailto:david@lionardy.com">david@lionardy.com</a><a href="tel:+6285716712840">+62 857 1671 2840</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lionardy Digital Marketing.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Lionardy Digital Marketing</title>
+  <meta name="description" content="Start your project with Lionardy Digital Marketing. Based in Jakarta, serving Southeast Asia and beyond." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <style>
+    /* ── CONTACT LAYOUT ── */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: var(--sp-12);
+      align-items: start;
+      padding-top: var(--sp-6);
+    }
+
+    /* ── INFO ── */
+    .contact-info h2 { margin-bottom: var(--sp-4); }
+    .contact-info > p { margin-bottom: var(--sp-8); font-size: 1.05rem; line-height: 1.75; color: var(--text-500); }
+    .contact-detail-list { display: flex; flex-direction: column; }
+    .contact-detail {
+      display: flex; gap: 18px; align-items: flex-start;
+      padding: var(--sp-4) 0;
+      border-bottom: 1px solid var(--border-100);
+    }
+    .contact-detail:last-child { border-bottom: none; }
+    .contact-detail-icon {
+      width: 44px; height: 44px; border-radius: var(--r-md);
+      background: var(--accent-light); color: var(--accent-btn);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .contact-detail-text .detail-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--text-500); font-weight: 700; margin-bottom: 5px; }
+    .contact-detail-text a, .contact-detail-text span { font-size: 0.95rem; color: var(--text-900); font-weight: 500; }
+    .contact-detail-text a:hover { color: var(--accent); }
+    .contact-social { margin-top: var(--sp-8); }
+    .contact-social .detail-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--text-500); font-weight: 700; margin-bottom: 16px; }
+    
+    .map-stub {
+      margin-top: var(--sp-8);
+      height: 180px; border-radius: var(--r-xl);
+      background: var(--bg-1); border: 1px solid var(--border-100);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 8px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .map-stub .map-pin { font-size: 2rem; }
+    .map-stub span { font-size: 0.8rem; color: var(--text-500); font-weight: 600; letter-spacing: 0.05em; }
+
+    /* ── FORM ── */
+    .contact-form-wrap {
+      background: var(--bg-0);
+      border: 1px solid var(--border-100);
+      border-radius: var(--r-2xl);
+      padding: var(--sp-10) var(--sp-8);
+      box-shadow: var(--shadow-sm);
+    }
+    .form-header { margin-bottom: var(--sp-6); }
+    .form-header h3 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 8px; }
+    .form-header p { font-size: 0.95rem; color: var(--text-500); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+    .form-group label {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-700);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--bg-1);
+      border: 1px solid var(--border-200);
+      border-radius: var(--r-md);
+      padding: 14px 18px;
+      color: var(--text-900);
+      font-size: 0.95rem;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      transition: all var(--t-fast);
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent);
+      background: var(--bg-0);
+      box-shadow: 0 0 0 4px var(--accent-glow);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--text-300); }
+    .form-group textarea { min-height: 140px; resize: vertical; }
+    
+    .form-submit {
+      width: 100%; padding: 18px;
+      font-size: 0.9rem; font-weight: 700;
+      border-radius: var(--r-full);
+      background: var(--text-900); color: var(--bg-0);
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      margin-top: 12px; transition: all var(--t-med);
+    }
+    .form-submit:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(90,138,0,0.25); }
+    .form-legal { font-size: 0.75rem; color: var(--text-300); text-align: center; margin-top: 16px; line-height: 1.6; }
+    .form-legal a { color: var(--accent); font-weight: 500; }
+    .form-success { display: none; text-align: center; padding: var(--sp-8) 0; }
+    .form-success .success-icon { font-size: 4rem; margin-bottom: 16px; }
+    .form-success h4 { font-size: 1.5rem; margin-bottom: 8px; }
+    .form-success p { color: var(--text-500); }
+
+    /* ── NEXT STEPS ── */
+    .next-steps-section { background: var(--bg-1); border-top: 1px solid var(--border-100); }
+    .next-steps-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); margin-top: var(--sp-10);
+    }
+    .next-card {
+      padding: var(--sp-8) var(--sp-6); border-radius: var(--r-xl);
+      background: var(--bg-0); border: 1px solid var(--border-100);
+      text-align: center; transition: all var(--t-med);
+    }
+    .next-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow-sm); }
+    .next-card-icon { font-size: 2.2rem; margin-bottom: var(--sp-3); }
+    .next-card h4 { font-size: 1.05rem; margin-bottom: 8px; font-weight: 700; color: var(--text-900); }
+    .next-card p { font-size: 0.85rem; line-height: 1.65; color: var(--text-500); }
+
+    @media (max-width: 1100px) {
+      .contact-layout { grid-template-columns: 1fr; gap: var(--sp-10); }
+      .next-steps-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .contact-form-wrap { padding: var(--sp-6) var(--sp-4); }
+      .form-row { grid-template-columns: 1fr; }
+      .next-steps-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div id="cursor" aria-hidden="true"></div>
+  <div id="cursor-trail" aria-hidden="true"></div>
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <nav id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo"><span class="logo-mark">L</span> Lionardy</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn-nav magnetic">Start a Project</a>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-mobile">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Work</a><a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+    <header class="page-hero">
+      <div class="container">
+        <div class="label-chip reveal"><span class="dot"></span> Get In Touch</div>
+        <h1 class="reveal d1">Let's build<br>something great.</h1>
+        <p class="reveal d2">Tell us about your project, timeline, and goals. We reply within 24 hours — usually sooner.</p>
+      </div>
+    </header>
+
+    <section style="padding-top:0; background:var(--bg-0);">
+      <div class="container">
+        <div class="contact-layout">
+          <!-- INFO -->
+          <div class="contact-info reveal-left">
+            <h2>Say <span style="color:var(--accent)">hello</span></h2>
+            <p>Whether you have a detailed RFP or just an idea on a napkin — we'd love to chat.</p>
+            <div class="contact-detail-list">
+              <div class="contact-detail">
+                <div class="contact-detail-icon">✉️</div>
+                <div class="contact-detail-text">
+                  <div class="detail-label">Email</div>
+                  <a href="mailto:david@lionardy.com">david@lionardy.com</a>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-detail-icon">📞</div>
+                <div class="contact-detail-text">
+                  <div class="detail-label">Phone</div>
+                  <a href="tel:+6285716712840">+62 857 1671 2840</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FORM -->
+          <div class="contact-form-wrap reveal-right">
+            <div class="form-header">
+              <h3>Start Your Project</h3>
+              <p>Fill in the details below — the more you share, the better we can help.</p>
+            </div>
+
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contact-form" novalidate>
+              <input type="hidden" name="form-name" value="contact" />
+              <p style="display:none"><label>Leave blank: <input name="bot-field" /></label></p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="first-name">First Name *</label>
+                  <input type="text" id="first-name" name="first-name" placeholder="David" required />
+                </div>
+                <div class="form-group">
+                  <label for="last-name">Last Name</label>
+                  <input type="text" id="last-name" name="last-name" placeholder="Lionardy" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="you@company.com" required />
+              </div>
+              <div class="form-group">
+                <label for="service">Service Interested In</label>
+                <select id="service" name="service">
+                  <option value="" disabled selected>Select a service…</option>
+                  <option value="web-development">Web Development</option>
+                  <option value="ui-ux-design">UI/UX Design</option>
+                  <option value="brand-identity">Brand Identity</option>
+                  <option value="seo-growth">SEO &amp; Growth</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="budget">Estimated Budget</label>
+                <select id="budget" name="budget">
+                  <option value="" disabled selected>Select a range…</option>
+                  <option value="under-5k">Under $5,000</option>
+                  <option value="5k-15k">$5,000 – $15,000</option>
+                  <option value="15k-50k">$15,000 – $50,000</option>
+                  <option value="50k-plus">$50,000+</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Tell Us About Your Project *</label>
+                <textarea id="message" name="message" placeholder="Describe your goals, timeline, and requirements. We love details." required></textarea>
+              </div>
+              <button type="submit" class="form-submit magnetic">
+                Send Message →
+              </button>
+              <p class="form-legal">By submitting, you agree to our <a href="#">Privacy Policy</a>. No spam, ever.</p>
+            </form>
+
+            <div class="form-success" id="form-success">
+              <div class="success-icon">🎉</div>
+              <h4>Message Sent!</h4>
+              <p>Thanks for reaching out. We'll be in touch shortly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT STEPS -->
+    <section class="next-steps-section">
+      <div class="container">
+        <h2 class="reveal" style="text-align:center;margin-bottom:0">What happens next</h2>
+        <div class="next-steps-grid">
+          <div class="next-card reveal d1">
+            <div class="next-card-icon">📬</div>
+            <h4>1. We Review</h4>
+            <p>Your message reaches our team immediately. We review every brief to ensure we're the perfect fit.</p>
+          </div>
+          <div class="next-card reveal d2">
+            <div class="next-card-icon">📅</div>
+            <h4>2. Discovery Call</h4>
+            <p>We'll set up a 30-minute call to discuss your goals in depth—no sales pressure.</p>
+          </div>
+          <div class="next-card reveal d3">
+            <div class="next-card-icon">📋</div>
+            <h4>3. Proposal</h4>
+            <p>You'll receive a detailed scope, timeline, and pricing breakdown within 48 hours of our call.</p>
+          </div>
+          <div class="next-card reveal d4">
+            <div class="next-card-icon">🚀</div>
+            <h4>4. Kickoff</h4>
+            <p>Once approved, we set up communication channels, onboard the team, and get to work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo"><span class="logo-mark">L</span>Lionardy</a>
+          <p>A full-service digital marketing agency crafting modern, high-performance websites and strategic brands.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h5>Pages</h5><a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="portfolio.html">Work</a>
+          </div>
+          <div class="footer-col">
+            <h5>Contact</h5><a href="mailto:david@lionardy.com">david@lionardy.com</a><a href="tel:+6285716712840">+62 857 1671 2840</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lionardy Digital Marketing.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    const form    = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+    if (form) {
+      // Auto-select service if plan param exists in URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const plan = urlParams.get('plan');
+      if (plan) {
+        const bdg = document.getElementById('budget');
+        const svc = document.getElementById('service');
+        if (plan === 'foundation') { bdg.value = 'under-5k'; svc.value = 'web-development'; }
+        if (plan === 'growth')     { bdg.value = '5k-15k'; svc.value = 'web-development'; }
+        if (plan === 'enterprise') { bdg.value = '50k-plus'; svc.value = 'web-development'; }
+      }
+
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        try {
+          await fetch('/', { method: 'POST', body: new FormData(form) });
+        } catch {}
+        form.style.display = 'none';
+        if (success) success.style.display = 'block';
+      });
+    }
+  </script>
+</body>
+</html>

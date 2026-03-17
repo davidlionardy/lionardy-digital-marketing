@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Lionardy Digital Marketing</title>
+  <meta name="description" content="Explore Lionardy's portfolio of real case studies: websites, brand identities, and digital campaigns delivering measurable results." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <style>
+    /* ── FILTER ── */
+    .filter-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 56px; }
+    .filter-tab {
+      padding: 10px 24px;
+      border-radius: 100px;
+      background: var(--bg-0);
+      border: 1px solid var(--border-100);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-500);
+      transition: all var(--t-fast);
+      box-shadow: var(--shadow-xs);
+    }
+    .filter-tab:hover { box-shadow: var(--shadow-sm); border-color: var(--border-200); color: var(--text-900); }
+    .filter-tab.active { background: var(--text-900); border-color: var(--text-900); color: var(--bg-0); box-shadow: var(--shadow-sm); }
+
+    /* ── PROJECT CARDS ── */
+    #portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: var(--sp-4);
+      min-height: 400px;
+    }
+    .project-card {
+      border-radius: var(--r-xl);
+      background: var(--bg-0);
+      border: 1px solid var(--border-100);
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: var(--shadow-xs);
+      transition: border-color var(--t-med), transform var(--t-med), box-shadow var(--t-med);
+    }
+    .project-card:hover {
+      border-color: var(--border-200);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+    .project-card-visual {
+      height: 240px;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-1);
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1px solid var(--border-100);
+    }
+    .project-emoji {
+      font-size: 6rem;
+      transition: transform var(--t-med);
+    }
+    .project-card:hover .project-emoji { transform: scale(1.15) rotate(-4deg); }
+    .card-overlay {
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,0.85); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity var(--t-fast);
+    }
+    .project-card:hover .card-overlay { opacity: 1; }
+    .card-view-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-900);
+      border: 1px solid var(--border-200);
+      background: var(--bg-0);
+      padding: 10px 20px;
+      border-radius: 100px;
+      box-shadow: var(--shadow-sm);
+    }
+    .card-meta-top {
+      position: absolute; top: 16px; left: 16px; right: 16px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .card-year { font-size: 0.7rem; color: var(--text-500); font-weight: 600; letter-spacing: 0.08em; }
+    .project-card-body { padding: 28px 24px 32px; }
+    .card-client { font-size: 0.72rem; color: var(--text-500); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+    .card-title { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 10px; color: var(--text-900); transition: color var(--t-fast); }
+    .project-card:hover .card-title { color: var(--accent); }
+    .card-result { font-size: 0.82rem; font-weight: 500; color: var(--text-700); line-height: 1.5; margin-bottom: 18px; padding: 12px 16px; background: var(--bg-1); border-left: 3px solid var(--accent); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tech-tag {
+      padding: 4px 10px;
+      background: var(--bg-0);
+      border: 1px solid var(--border-100);
+      border-radius: 100px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-500);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── MODAL ── */
+    #project-modal {
+      position: fixed; inset: 0;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      z-index: 10001;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      opacity: 0; pointer-events: none;
+      transition: opacity var(--t-med);
+    }
+    #project-modal.open { opacity: 1; pointer-events: all; }
+    .modal-inner {
+      background: var(--bg-0);
+      border: 1px solid var(--border-100);
+      border-radius: var(--r-2xl);
+      box-shadow: var(--shadow-xl);
+      max-width: 680px; width: 100%;
+      max-height: 92vh; overflow-y: auto;
+      transform: translateY(30px) scale(0.97);
+      transition: transform 0.4s var(--ease-out);
+      position: relative;
+    }
+    .modal-inner.in { transform: translateY(0) scale(1); }
+    #modal-close {
+      position: absolute; top: 18px; right: 18px;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--bg-1); border: 1px solid var(--border-200);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 300; color: var(--text-500);
+      transition: all var(--t-fast); z-index: 10;
+    }
+    #modal-close:hover { background: var(--text-900); color: var(--bg-0); border-color: var(--text-900); }
+    .modal-hero {
+      padding: 48px 48px 32px;
+      background: var(--bg-1);
+      border-bottom: 1px solid var(--border-100);
+      display: flex; gap: 24px; align-items: flex-start;
+    }
+    .modal-emoji { font-size: 4.5rem; flex-shrink: 0; line-height: 1; }
+    .modal-title { font-size: clamp(1.6rem, 4vw, 2.2rem); margin-top: 8px; margin-bottom: 6px; letter-spacing: -0.04em; }
+    .modal-client { font-size: 0.8rem; font-weight: 600; color: var(--text-500); letter-spacing: 0.06em; text-transform: uppercase; }
+    .modal-content { padding: 40px 48px 48px; }
+    .modal-result-badge {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 16px 20px;
+      border-radius: var(--r-md);
+      background: var(--accent-dim);
+      border: 1px solid rgba(90,138,0,0.15);
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+      color: var(--accent-btn);
+      font-weight: 600;
+    }
+    .result-icon { font-size: 1.2rem; }
+    .modal-desc { font-size: 0.95rem; color: var(--text-700); line-height: 1.7; margin-bottom: 32px; }
+    .modal-tech-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-500); margin-bottom: 12px; }
+    .modal-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .modal-actions { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+    .modal-actions .btn { font-size: 0.8rem; padding: 12px 24px; }
+
+    @media (max-width: 640px) {
+      #portfolio-grid { grid-template-columns: 1fr; }
+      .modal-hero { padding: 32px 24px 24px; flex-direction: column; gap: 16px; }
+      .modal-content { padding: 24px 24px 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="cursor" aria-hidden="true"></div>
+  <div id="cursor-trail" aria-hidden="true"></div>
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <nav id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo"><span class="logo-mark">L</span> Lionardy</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn-nav magnetic">Start a Project</a>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-mobile">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Work</a><a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+    <header class="page-hero">
+      <div class="container">
+        <div class="label-chip reveal"><span class="dot"></span> Our Work</div>
+        <h1 class="reveal d1">140+ Projects.<br>Zero Compromises.</h1>
+        <p class="reveal d2">Real clients, exceptional results. A curated selection of case studies across web development, UI/UX design, and brand architecture.</p>
+      </div>
+    </header>
+
+    <section style="background:var(--bg-1);">
+      <div class="container">
+        <div class="filter-bar reveal" role="group" aria-label="Filter projects">
+          <button class="filter-tab active" data-filter="all">All Work</button>
+          <button class="filter-tab" data-filter="web">Web Dev</button>
+          <button class="filter-tab" data-filter="design">UI/UX</button>
+          <button class="filter-tab" data-filter="branding">Branding</button>
+        </div>
+        <div id="portfolio-grid" role="list" aria-label="Portfolio projects"></div>
+      </div>
+    </section>
+
+    <section style="text-align:center;padding:var(--sp-12) 0;background:var(--bg-0);border-top:1px solid var(--border-100);">
+      <div class="container">
+        <div class="reveal">
+          <h2 style="margin-bottom:var(--sp-2)">Ready to be next?</h2>
+          <p style="margin-bottom:var(--sp-6);max-width:420px;margin-left:auto;margin-right:auto">Every project on this page started with a single conversation.</p>
+          <a href="contact.html" class="btn btn-primary magnetic">Start the Conversation</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL -->
+  <div id="project-modal" role="dialog" aria-modal="true" aria-label="Project details">
+    <div class="modal-inner">
+      <button id="modal-close" aria-label="Close">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo"><span class="logo-mark">L</span>Lionardy</a>
+          <p>A full-service digital marketing agency crafting modern, high-performance websites and strategic brands.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h5>Pages</h5><a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="portfolio.html">Work</a>
+          </div>
+          <div class="footer-col">
+            <h5>Contact</h5><a href="mailto:david@lionardy.com">david@lionardy.com</a><a href="tel:+6285716712840">+62 857 1671 2840</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Lionardy Digital Marketing.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/portfolio.js"></script>
+</body>
+</html>
