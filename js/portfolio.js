@@ -15,8 +15,8 @@
       desc: 'A complete digital overhaul for a Jakarta-based private equity fund. We designed and built a bespoke investors portal with real-time portfolio analytics, fund performance dashboards, and encrypted document sharing — reducing reporting time by 70%.',
       result: '+340% qualified investor leads in 3 months',
       tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe'],
-      emoji: '📊',
-      color: '#c8ff00',
+      image: 'https://images.unsplash.com/photo-1551288049-bbda38a10ad5?auto=format&fit=crop&q=80&w=800',
+      color: '#6366f1',
     },
     {
       id: 2, category: 'design',
@@ -26,8 +26,8 @@
       desc: 'End-to-end UX research and product design for a SaaS platform enabling creative agencies to manage client approvals and feedback cycles. User testing revealed a 58% drop-off in onboarding — we redesigned it entirely and lifted conversion by 3.2×.',
       result: '3.2× onboarding conversion uplift',
       tags: ['Figma', 'User Research', 'Design Systems', 'Prototyping'],
-      emoji: '🎨',
-      color: '#ff6b9d',
+      image: 'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=800',
+      color: '#ec4899',
     },
     {
       id: 3, category: 'web',
@@ -37,8 +37,8 @@
       desc: 'Headless commerce platform for an Indonesian local brand expanding into Southeast Asia. Custom Shopify Hydrogen frontend with localization, multi-currency, and a 0.8s average load time on mobile — a 4× improvement over their legacy store.',
       result: '4× faster load time, 28% higher checkout rate',
       tags: ['Shopify', 'React', 'Sanity CMS', 'Cloudflare'],
-      emoji: '🛒',
-      color: '#00d4aa',
+      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800',
+      color: '#10b981',
     },
     {
       id: 4, category: 'branding',
@@ -48,8 +48,8 @@
       desc: 'Brand identity and packaging design for an award-winning craft arak from Bali. We crafted the name, wordmark, tone of voice, and bottle design — which went on to win a gold medal at the 2024 Asian Spirits Awards.',
       result: 'Gold medal — 2024 Asian Spirits Awards',
       tags: ['Brand Strategy', 'Logo Design', 'Packaging', 'Art Direction'],
-      emoji: '🥃',
-      color: '#f7b731',
+      image: 'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&q=80&w=800',
+      color: '#f59e0b',
     },
     {
       id: 5, category: 'web',
@@ -59,8 +59,8 @@
       desc: 'Patient-facing web app and marketing site for an Indonesian telemedicine startup. We delivered a full design system, appointment booking flow, and doctor profile pages — launching in 6 weeks from kickoff. The app now serves 40,000+ monthly users.',
       result: '40,000+ monthly active users at launch',
       tags: ['Vue.js', 'Laravel', 'Figma', 'Mobile-first'],
-      emoji: '🏥',
-      color: '#7b5ea7',
+      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800',
+      color: '#8b5cf6',
     },
     {
       id: 6, category: 'branding',
@@ -70,8 +70,8 @@
       desc: 'Visual identity system for a Jakarta-based architecture firm specializing in eco-sustainable commercial spaces. The brand — minimal, material, monumental — elevated them into winning a government tender for a 12,000m² cultural center.',
       result: 'Won IDR 24B government design tender',
       tags: ['Visual Identity', 'Brand Guidelines', 'Web Design', 'Print'],
-      emoji: '🏛️',
-      color: '#c8ff00',
+      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800',
+      color: '#3b82f6',
     },
     {
       id: 7, category: 'design',
@@ -81,8 +81,8 @@
       desc: 'Complete UX redesign for an edtech platform serving 120,000 K-12 students across Indonesia. We ran 6 weeks of user research, 40+ usability sessions, and redesigned the learning feed — increasing daily active time by 22 minutes per student.',
       result: '+22 min average daily engagement per student',
       tags: ['UX Research', 'Figma', 'Accessibility', 'A/B Testing'],
-      emoji: '📚',
-      color: '#ff6b9d',
+      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&q=80&w=800',
+      color: '#ef4444',
     },
     {
       id: 8, category: 'web',
@@ -92,8 +92,8 @@
       desc: 'Digital marketing site and client portal for a boutique corporate law firm in Jakarta. Built with a bespoke CMS allowing lawyers to publish articles, and a secure client intake flow integrated with their case management system — reducing admin time by 15 hours/week.',
       result: '2.8× increase in organic consultation bookings',
       tags: ['WordPress', 'PHP', 'SEO', 'Custom CMS'],
-      emoji: '⚖️',
-      color: '#00d4aa',
+      image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=800',
+      color: '#1e293b',
     },
   ];
 
@@ -111,7 +111,7 @@
     card.setAttribute('role', 'listitem');
     card.innerHTML = `
       <div class="project-card-visual" style="--c:${p.color}">
-        <div class="project-emoji">${p.emoji}</div>
+        <img src="${p.image}" alt="${p.title}" class="project-card-img" loading="lazy">
         <div class="card-overlay">
           <span class="card-view-label">View Case Study</span>
         </div>
@@ -167,10 +167,11 @@
   function openModal(p) {
     if (!modal || !mBody) return;
     mBody.innerHTML = `
-      <div class="modal-hero" style="--c:${p.color}">
-        <div class="modal-emoji">${p.emoji}</div>
+      <div class="modal-hero">
+        <img src="${p.image}" alt="${p.title}" class="modal-hero-img">
+        <div class="modal-hero-overlay" style="background: linear-gradient(to bottom, transparent, rgba(15, 23, 42, 0.9))"></div>
         <div class="modal-hero-info">
-          <span class="tag">${p.category}</span>
+          <span class="tag" style="background:${p.color}; color:#fff; border:none;">${p.category}</span>
           <h2 class="modal-title">${p.title}</h2>
           <div class="modal-client">${p.client} · ${p.year}</div>
         </div>
