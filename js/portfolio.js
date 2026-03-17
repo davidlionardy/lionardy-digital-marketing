@@ -103,7 +103,7 @@
       desc: 'Integrated digital solution for an automotive service leader. We managed end-to-end website development and performance marketing campaigns, driving a massive increase in service appointment bookings through hyper-targeted localized ads.',
       result: '180% growth in online service bookings',
       tags: ['Website', 'Performance Ads', 'Lead Generation'],
-      image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800',
+      image: 'https://www.b-quik.id/image/cover/b-quik-og-image.jpg',
       color: '#f59e0b',
     },
   ];
