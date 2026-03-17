@@ -20,12 +20,12 @@
   --text-500:      #475569;      
   --text-300:      #94a3b8;
 
-  /* Accent — Soft blue/purple */
-  --accent:        #6366f1;      /* Indigo */
-  --accent-alt:    #a855f7;      /* Purple for gradients */
-  --accent-light:  #e0e7ff;     
-  --accent-dim:    rgba(99,102,241,0.08);
-  --accent-glow:   rgba(99,102,241,0.18);
+  /* Accent — Teal/Green */
+  --accent:        #48bc70;      /* Green */
+  --accent-alt:    #21bda1;      /* Teal for gradients */
+  --accent-light:  #dcfce7;     
+  --accent-dim:    rgba(72,188,112,0.08);
+  --accent-glow:   rgba(72,188,112,0.18);
   --accent-btn:    #0f172a;      /* Primary buttons dark for minimal feel */
 
   /* Borders */
@@ -217,14 +217,10 @@ section { padding: var(--section-py) 0; position: relative; }
   color: var(--text-900);
   white-space: nowrap;
 }
-.nav-logo .logo-mark {
-  width: 30px; height: 30px;
-  background: var(--accent);
-  border-radius: var(--r-sm);
-  display: flex; align-items: center; justify-content: center;
-  color: #fff;
-  font-size: 0.85rem;
-  font-weight: 900;
+.nav-logo .logo-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
   flex-shrink: 0;
 }
 .nav-links {
@@ -479,7 +475,7 @@ footer {
   letter-spacing: -0.04em;
   margin-bottom: var(--sp-3);
 }
-.footer-logo .logo-mark { background: var(--accent); }
+.footer-logo .logo-img { height: 32px; width: auto; }
 .footer-brand p { font-size: 0.875rem; color: rgba(255,255,255,0.45); line-height: 1.75; }
 .footer-links { display: flex; gap: var(--sp-12); flex-shrink: 0; }
 .footer-col h5 {
