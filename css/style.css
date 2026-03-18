@@ -211,11 +211,29 @@ section { padding: var(--section-py) 0; position: relative; }
   display: flex;
   align-items: center;
   gap: var(--sp-1);
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 800;
   letter-spacing: -0.04em;
   color: var(--text-900);
   white-space: nowrap;
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.logo-text small {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-500);
+  margin-top: 2px;
+}
+@media (max-width: 480px) {
+  .logo-text small {
+    display: block;
+  }
 }
 .nav-logo .logo-img {
   height: 38px;
@@ -467,14 +485,12 @@ footer {
 }
 .footer-brand { max-width: 320px; }
 .footer-logo {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-1);
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  display: flex; align-items: center; gap: var(--sp-1);
+  font-size: 1.15rem; font-weight: 800; letter-spacing: -0.04em;
   margin-bottom: var(--sp-3);
 }
+.footer-logo .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+.footer-logo .logo-text small { font-size: 0.65rem; font-weight: 600; color: rgba(255,255,255,0.4); text-transform: uppercase; }
 .footer-logo .logo-img { height: 32px; width: auto; }
 .footer-brand p { font-size: 0.875rem; color: rgba(255,255,255,0.45); line-height: 1.75; }
 .footer-links { display: flex; gap: var(--sp-12); flex-shrink: 0; }
