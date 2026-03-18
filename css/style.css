@@ -331,7 +331,7 @@ section { padding: var(--section-py) 0; position: relative; }
     font-size: 0.7rem;
   }
   .nav-inner { gap: 8px; }
-  .nav-toggle { margin-right: 12px; }
+  .nav-toggle { margin-right: 15px; }
 }
 @media (max-width: 360px) {
   .nav-logo { font-size: 1rem; }
@@ -339,7 +339,7 @@ section { padding: var(--section-py) 0; position: relative; }
   .logo-text small { font-size: 0.55rem; }
   .btn-nav { padding: 5px 8px; font-size: 0.65rem; }
   .nav-inner { gap: 5px; }
-  .nav-toggle { margin-right: 8px; }
+  .nav-toggle { margin-right: 11px; }
 }
 
 /* =========================================
