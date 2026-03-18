@@ -232,9 +232,9 @@ section { padding: var(--section-py) 0; position: relative; }
   margin-top: 2px;
 }
 @media (max-width: 480px) {
-  .logo-text small { display: block; font-size: 0.55rem; }
-  .nav-logo { font-size: 1rem; }
-  .logo-img { height: 32px !important; }
+  .logo-text small { display: block; font-size: 0.6rem; }
+  .nav-logo { font-size: 1.1rem; }
+  .logo-img { height: 38px !important; }
 }
 .nav-logo .logo-img {
   height: 38px;
@@ -331,13 +331,15 @@ section { padding: var(--section-py) 0; position: relative; }
     font-size: 0.7rem;
   }
   .nav-inner { gap: 8px; }
-  .nav-toggle { margin-right: 0; }
+  .nav-toggle { margin-right: 12px; }
 }
 @media (max-width: 360px) {
-  .nav-logo { font-size: 0.9rem; }
-  .logo-img { height: 28px !important; }
-  .btn-nav { padding: 5px 10px; font-size: 0.65rem; }
-  .nav-inner { gap: 6px; }
+  .nav-logo { font-size: 1rem; }
+  .logo-img { height: 34px !important; }
+  .logo-text small { font-size: 0.55rem; }
+  .btn-nav { padding: 5px 8px; font-size: 0.65rem; }
+  .nav-inner { gap: 5px; }
+  .nav-toggle { margin-right: 8px; }
 }
 
 /* =========================================
