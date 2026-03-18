@@ -149,8 +149,8 @@ p  { color: var(--text-500); line-height: 1.75; }
   padding: 0 var(--sp-8);
 }
 @media (max-width: 1024px) { .container { padding: 0 var(--sp-6); } }
-@media (max-width: 640px)  { .container { padding: 0 var(--sp-6); } }
-@media (max-width: 480px)  { .container { padding: 0 var(--sp-6); } }
+@media (max-width: 640px)  { .container { padding: 0 var(--sp-4); } }
+@media (max-width: 480px)  { .container { padding: 0 var(--sp-3); } }
 
 /* ── Section ────────────────────────────── */
 section { padding: var(--section-py) 0; position: relative; }
@@ -266,6 +266,7 @@ section { padding: var(--section-py) 0; position: relative; }
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: -0.01em;
+  white-space: nowrap;
   transition: background var(--t-fast), transform var(--t-med), box-shadow var(--t-med);
 }
 .btn-nav:hover {
@@ -321,17 +322,22 @@ section { padding: var(--section-py) 0; position: relative; }
     display: inline-flex; 
     padding: 8px 16px; 
     font-size: 0.75rem;
-    margin-right: 5px;
+    margin-right: 0;
   }
 }
 @media (max-width: 480px) {
   .btn-nav { 
     padding: 6px 12px; 
     font-size: 0.7rem;
-    letter-spacing: 0;
   }
-  .nav-inner { gap: 12px; }
-  .nav-toggle { margin-right: 5px; }
+  .nav-inner { gap: 8px; }
+  .nav-toggle { margin-right: 0; }
+}
+@media (max-width: 360px) {
+  .nav-logo { font-size: 0.9rem; }
+  .logo-img { height: 28px !important; }
+  .btn-nav { padding: 5px 10px; font-size: 0.65rem; }
+  .nav-inner { gap: 6px; }
 }
 
 /* =========================================
