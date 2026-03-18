@@ -231,9 +231,9 @@ section { padding: var(--section-py) 0; position: relative; }
   margin-top: 2px;
 }
 @media (max-width: 480px) {
-  .logo-text small {
-    display: block;
-  }
+  .logo-text small { display: block; font-size: 0.55rem; }
+  .nav-logo { font-size: 1rem; }
+  .logo-img { height: 32px !important; }
 }
 .nav-logo .logo-img {
   height: 38px;
@@ -314,8 +314,22 @@ section { padding: var(--section-py) 0; position: relative; }
 .nav-mobile a:hover { color: var(--accent); }
 
 @media (max-width: 900px) {
-  .nav-links, .btn-nav { display: none; }
+  .nav-links { display: none; }
   .nav-toggle { display: flex; }
+  .btn-nav { 
+    display: inline-flex; 
+    padding: 8px 16px; 
+    font-size: 0.75rem;
+    margin-right: -5px;
+  }
+}
+@media (max-width: 480px) {
+  .btn-nav { 
+    padding: 6px 12px; 
+    font-size: 0.7rem;
+    letter-spacing: 0;
+  }
+  .nav-inner { gap: 8px; }
 }
 
 /* =========================================
