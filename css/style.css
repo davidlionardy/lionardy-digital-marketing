@@ -232,9 +232,9 @@ section { padding: var(--section-py) 0; position: relative; }
   margin-top: 2px;
 }
 @media (max-width: 480px) {
-  .logo-text small { display: block; font-size: 0.6rem; }
-  .nav-logo { font-size: 1.1rem; }
-  .logo-img { height: 38px !important; }
+  .logo-text small { display: block; font-size: 0.65rem; }
+  .nav-logo { font-size: 1.2rem; }
+  .logo-img { height: 42px !important; }
 }
 .nav-logo .logo-img {
   height: 38px;
@@ -330,8 +330,8 @@ section { padding: var(--section-py) 0; position: relative; }
     padding: 6px 12px; 
     font-size: 0.7rem;
   }
-  .nav-inner { gap: 8px; }
-  .nav-toggle { margin-right: 15px; }
+  .nav-inner { gap: 10px; }
+  .nav-toggle { margin-right: 18px; }
 }
 @media (max-width: 360px) {
   .nav-logo { font-size: 1rem; }
@@ -557,13 +557,13 @@ footer {
 /* =========================================
    PAGE HERO (inner pages)
    ========================================= */
-.page-hero {
-  padding: 160px 0 80px;
+.page-hero, .about-hero, .services-hero {
+  padding: var(--sp-16) 0 var(--sp-12);
   position: relative;
   background: var(--bg-0);
   border-bottom: 1px solid var(--border-100);
 }
-.page-hero p { margin-top: var(--sp-3); font-size: 1.1rem; max-width: 560px; color: var(--text-500); }
+.page-hero p, .about-hero p, .services-hero p { margin-top: var(--sp-4); font-size: 1.15rem; max-width: 600px; line-height: 1.75; color: var(--text-500); }
 
 /* =========================================
    MARQUEE
